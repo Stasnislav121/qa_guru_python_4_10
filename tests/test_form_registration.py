@@ -1,24 +1,30 @@
-from qa_guru_4_10.pages.registration_page import StudentRegistrationPage
+from qa_guru_4_10.data import Student
+from qa_guru_4_10.pages.registration_page import Student_Registration_Page_Steps
+
+student = Student(
+    first_name='Ivan',
+    last_name='Petrov',
+    email='petrov@abc.com',
+    gender='Male',
+    mobile='7123456789',
+    year_of_birth='1917',
+    month_of_birth='January',
+    day_of_birth='5',
+    subjects='Maths',
+    hobbies='Sports',
+    picture='/img/one.png',
+    address='Rome, Italy',
+    state='Uttar Pradesh',
+    city='Agra'
+)
 
 
-def test_registration_form_():
-    registration_page = StudentRegistrationPage()
+def test_registration_form():
+    registration_page = Student_Registration_Page_Steps()
     registration_page.open()
 
     # WHEN
-    registration_page.fill_first_name('Ivan')
-    registration_page.fill_last_name('Petrov')
-    registration_page.fill_email('petrov@abc.com')
-    registration_page.select_gender('Male')
-    registration_page.fill_mobile('7123456789')
-    registration_page.fill_date_of_birth("1917", "January", "5")
-    registration_page.fill_subjects('Maths')
-    registration_page.select_hobbies('Sports')
-    registration_page.upload_picture('/img/one.png')
-    registration_page.fill_current_address('Rome, Italy')
-    registration_page.select_state('Uttar Pradesh')
-    registration_page.select_city('Agra')
-    registration_page.submit()
+    registration_page.registration(student)
 
     # THEN
     registration_page.should_have_registered_user_with(
