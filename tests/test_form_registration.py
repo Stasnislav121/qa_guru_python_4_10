@@ -14,7 +14,7 @@ def test_registration_form_():
     registration_page.fill_date_of_birth("1917", "January", "5")
     registration_page.fill_subjects('Maths')
     registration_page.select_hobbies('Sports')
-    registration_page.upload_picture('/img/one.png')
+    registration_page.upload_picture('one.png')
     registration_page.fill_current_address('Rome, Italy')
     registration_page.select_state('Uttar Pradesh')
     registration_page.select_city('Agra')

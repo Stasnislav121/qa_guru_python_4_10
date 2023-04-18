@@ -2,6 +2,11 @@ import os
 
 from selene import browser, command, have
 
+import tests
+
+
+def file_path(file):
+    return os.path.abspath(os.path.join(os.path.dirname(tests.__file__), f'img/{file}'))
 
 class StudentRegistrationPage:
     def open(self):
@@ -36,7 +41,7 @@ class StudentRegistrationPage:
         browser.all('.custom-checkbox').element_by(have.exact_text(value)).click()
 
     def upload_picture(self, value):
-        browser.element('#uploadPicture').send_keys(os.getcwd() + value)
+        browser.element('#uploadPicture').send_keys(file_path(value))
 
     def fill_current_address(self, value):
         browser.element('#currentAddress').type(value)
