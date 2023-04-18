@@ -4,8 +4,12 @@ from selene import browser, command, have
 
 from qa_guru_4_10.data import Student
 
+import tests
 
-class Student_Registration_Page_Steps:
+def file_path(file):
+    return os.path.abspath(os.path.join(os.path.dirname(tests.__file__), f'img/{file}'))
+
+class StudentRegistrationPageSteps:
 
     def found_td(self, value1, value2):
         browser.all('.table tr').element_by_its('td', have.exact_text(value1)).all('td')[1].should(
@@ -53,7 +57,7 @@ class Student_Registration_Page_Steps:
         return self
 
     def upload_picture(self, value):
-        browser.element('#uploadPicture').send_keys(os.getcwd() + value)
+        browser.element('#uploadPicture').send_keys(file_path(value))
         return self
 
     def fill_current_address(self, value):

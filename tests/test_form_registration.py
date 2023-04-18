@@ -1,5 +1,7 @@
 from qa_guru_4_10.data import Student
-from qa_guru_4_10.pages.registration_page import Student_Registration_Page_Steps
+from qa_guru_4_10.pages.registration_page import StudentRegistrationPageSteps
+
+
 
 student = Student(
     first_name='Ivan',
@@ -12,7 +14,7 @@ student = Student(
     day_of_birth='5',
     subjects='Maths',
     hobbies='Sports',
-    picture='/img/one.png',
+    picture='one.png',
     address='Rome, Italy',
     state='Uttar Pradesh',
     city='Agra'
@@ -20,7 +22,7 @@ student = Student(
 
 
 def test_registration_form():
-    registration_page = Student_Registration_Page_Steps()
+    registration_page = StudentRegistrationPageSteps()
     registration_page.open()
 
     # WHEN
