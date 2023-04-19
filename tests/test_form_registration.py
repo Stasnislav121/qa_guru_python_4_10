@@ -30,14 +30,14 @@ def test_registration_form():
 
     # THEN
     registration_page.should_have_registered_user_with(
-        'Ivan Petrov',
-        'petrov@abc.com',
-        'Male',
-        '7123456789',
-        '05 January,1917',
-        'Maths',
-        'Sports',
-        'one.png',
-        'Rome, Italy',
-        'Uttar Pradesh Agra'
+        student.first_name + ' ' + student.last_name,
+        student.email,
+        student.gender,
+        student.mobile,
+        '0' + student.day_of_birth + ' ' + student.month_of_birth + ',' + student.year_of_birth,
+        student.subjects,
+        student.hobbies,
+        student.picture,
+        student.address,
+        student.state + ' ' + student.city
     )
