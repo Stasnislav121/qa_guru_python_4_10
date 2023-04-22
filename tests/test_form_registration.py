@@ -1,4 +1,7 @@
 from qa_guru_4_10.pages.registration_page import StudentRegistrationPage
+from selene import browser
+
+from utils import attach
 
 
 def test_registration_form_():
@@ -33,3 +36,6 @@ def test_registration_form_():
         'Rome, Italy',
         'Uttar Pradesh Agra'
     )
+    attach.add_html(browser)
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
