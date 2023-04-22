@@ -4,7 +4,7 @@ from selene import browser
 from utils import attach
 
 
-def test_registration_form_():
+def test_registration_form_(browser_setup):
     registration_page = StudentRegistrationPage()
     registration_page.open()
 
